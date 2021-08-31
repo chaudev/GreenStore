@@ -1,0 +1,6 @@
+export const tabRouer = {
+  HOMETAB: 'HOMETAB',
+  CARDTAB: 'CARDTAB',
+  WISHTAB: 'WISHTAB',
+  SETTINGTAB: 'SETTINGTAB',
+};
