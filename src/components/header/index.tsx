@@ -63,6 +63,8 @@ export const Header = ({
           fontSize: fonstSize || 16,
           textTransform: 'uppercase',
           fontFamily: fontFamily,
+          flex: 1,
+          textAlign: 'center',
         }}>
         {text}
       </Text>
@@ -72,7 +74,7 @@ export const Header = ({
         onPress={() => {
           showRight ? onRightPress() : console.log('x');
         }}
-        style={[primaryStyles.full]}>
+        style={[primaryStyles.full, {alignItems: 'flex-end'}]}>
         {showRight && (
           <Icon
             type={typeRight}

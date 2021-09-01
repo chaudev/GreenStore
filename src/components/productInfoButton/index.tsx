@@ -50,7 +50,7 @@ export const ProductInfoButton = ({
           }}
           onPress={() => {
             animationPress(ANIM_PRESS, () => {
-              //
+              onPress();
             });
           }}
           activeOpacity={0.5}

@@ -60,9 +60,7 @@ export const Numberic = ({
 
       <TouchableOpacity
         onPress={() => {
-          if (number > 1) {
-            setNumber(number - 1);
-          }
+          setNumber(number - 1);
         }}
         activeOpacity={0.5}
         style={[

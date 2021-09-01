@@ -39,7 +39,7 @@ export const CardInfo = ({
         </Text>
       </View>
 
-      <View style={[primaryStyles.spaceBetweenRow, primaryStyles.mt10]}>
+      <View style={[primaryStyles.spaceBetweenRow, primaryStyles.mt15]}>
         <Text
           style={{
             fontFamily: appConfig.fonts.primaryFont,

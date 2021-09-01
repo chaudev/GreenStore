@@ -1,6 +1,7 @@
 import {
   AnimationButton,
   Colors,
+  Icon,
   windowHeight,
   windowWidth,
 } from 'green-native-ts';
@@ -18,7 +19,7 @@ import {Products} from '~/components/products';
 import {CardList} from '~/components/cardList';
 import {products} from '../home/data';
 import {Header} from '~/components/header';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {CardInfo} from '~/components/cardInfo';
 import {Animated} from 'react-native';
 import {
@@ -28,16 +29,19 @@ import {
 } from '~/animation/buttonZoom';
 import {useDispatch, useSelector} from 'react-redux';
 import {saveCardData, setDataCard} from '~/redux/reducers/cardSlice';
-import {appRouter} from '~/navigation/appRouter';
+import {useState} from 'react';
 
-export const CardScreen = (): JSX.Element => {
+export const DeliveryScreen = (): JSX.Element => {
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
+  const route = useRoute();
   const dispatch = useDispatch();
 
   let ANIM_PRESS: any = new Animated.Value(1);
 
   const cardData = useSelector(state => state.card.data);
+
+  const [address, setAddress] = useState('');
 
   // Price
   const getTotalPrice = () => {
@@ -52,6 +56,7 @@ export const CardScreen = (): JSX.Element => {
     return totalPrice;
   };
 
+  // Render
   return (
     <View
       style={[
@@ -65,7 +70,7 @@ export const CardScreen = (): JSX.Element => {
 
       <View style={[primaryStyles.ph15]}>
         <Header
-          text={language.Card}
+          text={language.Delivery}
           fonstSize={16}
           showLeft={true}
           typeLeft="MaterialIcons"
@@ -79,10 +84,52 @@ export const CardScreen = (): JSX.Element => {
         />
       </View>
 
-      <View
-        style={[primaryStyles.mt15, primaryStyles.ph15, primaryStyles.full]}>
-        <CardList data={cardData} />
+      <View style={[primaryStyles.mv10, primaryStyles.ph15]}>
+        <Text
+          style={[
+            primaryStyles.text16,
+            primaryStyles.textBlack,
+            {fontFamily: appConfig.fonts.primaryFontBold},
+          ]}>
+          {language.Address}
+        </Text>
       </View>
+
+      <View style={[primaryStyles.ph15, primaryStyles.centerRow]}>
+        <View
+          style={[
+            primaryStyles.center,
+            {
+              backgroundColor: appConfig.colors.primaryColorSecond,
+              height: 60,
+              width: 60,
+              borderRadius: 12,
+            },
+          ]}>
+          <Icon
+            type="MaterialCommunityIcons"
+            name="map-marker"
+            size={32}
+            color={appConfig.colors.primaryColor}
+          />
+        </View>
+
+        {address === '' && (
+          <TouchableOpacity style={[primaryStyles.ph15]}>
+            <Text
+              style={[
+                primaryStyles.text16,
+                {fontFamily: appConfig.fonts.primaryFont},
+              ]}>
+              {language.AddAddress}
+            </Text>
+          </TouchableOpacity>
+        )}
+      </View>
+
+      <View style={[primaryStyles.full]} />
+
+      <View style={[primaryStyles.mv10, primaryStyles.ph15]}></View>
 
       <View
         style={[
@@ -116,7 +163,7 @@ export const CardScreen = (): JSX.Element => {
             }}
             onPress={() => {
               animationPress(ANIM_PRESS, () => {
-                navigation.navigate(appRouter.DELIVERY, cardData);
+                //
               });
             }}
             style={[primaryStyles.full, primaryStyles.center, {width: '100%'}]}>

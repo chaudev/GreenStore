@@ -2,6 +2,8 @@ import {createSlice} from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const saveCardData = async (param: object): Promise<void> => {
+  console.log('saveCardData: ', param);
+
   try {
     await AsyncStorage.setItem('card', JSON.stringify(param));
   } catch (error) {
@@ -25,17 +27,19 @@ export const Card = createSlice({
   },
   reducers: {
     initData: (state, action) => {
-      if (action.payload.type == 'card/setDataMenu') {
+      console.log('initData: ', action.payload);
+
+      if (action.payload.type == 'card/setDataCard') {
         state.data = action.payload.payload;
       } else {
         state.data = action.payload;
       }
     },
-    setDataMenu: (state, action) => {
+    setDataCard: (state, action) => {
       state.data = action.payload;
     },
   },
 });
 
-export const {setDataMenu, initData} = Card.actions;
+export const {setDataCard, initData} = Card.actions;
 export default Card.reducer;
