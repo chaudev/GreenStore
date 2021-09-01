@@ -19,7 +19,7 @@
     "@types/react-native-vector-icons": "^6.4.8",
     "axios": "^0.21.1",
     "babel-plugin-root-import": "^6.6.0",
-    "green-native-ts": "^1.0.1",
+    "green-native-ts": "^1.0.2",
     "react": "17.0.2",
     "react-hook-form": "^7.14.0",
     "react-native": "0.65.1",

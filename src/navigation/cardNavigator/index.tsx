@@ -1,16 +1,16 @@
 import * as React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HomeScreen} from '~/views/home';
+import {CardScreen} from '~/views/card';
 
 const Stack = createNativeStackNavigator();
 
-export const HomeNavigator = (): any => {
+export const CardNavigator = (): any => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="HomebNavigatorHome"
+        name="CardNavigator"
         options={{headerShown: false}}
-        component={HomeScreen}
+        component={CardScreen}
       />
     </Stack.Navigator>
   );

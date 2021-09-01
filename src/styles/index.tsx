@@ -58,6 +58,18 @@ export const primaryStyles = StyleSheet.create({
   pv0: {
     paddingVertical: 0,
   },
+  pv05: {
+    paddingVertical: 5,
+  },
+  pv10: {
+    paddingVertical: 10,
+  },
+  pv15: {
+    paddingVertical: 15,
+  },
+  pv20: {
+    paddingVertical: 20,
+  },
   ph0: {
     paddingHorizontal: 0,
   },
@@ -98,6 +110,12 @@ export const primaryStyles = StyleSheet.create({
   center: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  backgroundBlack: {
+    backgroundColor: '#000',
+  },
+  backgroundWhite: {
+    backgroundColor: '#fff',
   },
   textBlack: {
     color: '#000',

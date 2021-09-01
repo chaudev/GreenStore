@@ -24,6 +24,7 @@ import {useState} from 'react';
 import {ProductInfoContent} from '~/components/productInfoContent';
 import {ProductInfoButton} from '~/components/productInfoButton';
 import {products} from '../home/data';
+import {Header} from '~/components/header';
 
 export const DetailScreen = (): JSX.Element => {
   const insets = useSafeAreaInsets();
@@ -45,28 +46,25 @@ export const DetailScreen = (): JSX.Element => {
       ]}>
       <StatusBar barStyle="dark-content" />
       <ScrollView style={[primaryStyles.full]}>
-        <View style={[primaryStyles.ph15, primaryStyles.spaceBetweenRow]}>
-          <TouchableOpacity
-            activeOpacity={0.6}
-            onPress={() => {
+        <View style={[primaryStyles.ph15]}>
+          <Header
+            text=""
+            fonstSize={16}
+            showLeft={true}
+            typeLeft="MaterialIcons"
+            nameLeft="arrow-back"
+            sizeLeft={26}
+            showRight={true}
+            typeRight="MaterialCommunityIcons"
+            nameRight={true ? 'heart-outline' : 'heart'}
+            sizeRight={26}
+            onLeftPress={() => {
               navigation.goBack();
-            }}>
-            <Icon
-              type="MaterialIcons"
-              name="arrow-back"
-              color="#101010"
-              size={26}
-            />
-          </TouchableOpacity>
-
-          <TouchableOpacity activeOpacity={0.6} onPress={() => {}}>
-            <Icon
-              type="MaterialCommunityIcons"
-              name={true ? 'heart-outline' : 'heart'}
-              color="#101010"
-              size={26}
-            />
-          </TouchableOpacity>
+            }}
+            onRightPress={() => {
+              //
+            }}
+          />
         </View>
 
         <View
